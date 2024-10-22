@@ -53,7 +53,7 @@ export class AppComponent {
 
   fields: FormlyFieldConfig[] = [
     {
-      fieldGroupClassName: 'flex flex-row space-x-4 items-center', // Classe para layout horizontal
+      
       fieldGroup: [
         {
           key: 'firstName',
@@ -62,9 +62,11 @@ export class AppComponent {
             label: 'First Name',
             placeholder: 'Enter your first name',
             required: true,
-            className: 'input input-bordered w-full',
+            attributes: {
+            className: 'flex-1 xande input input-bordered w-full',
+            }
           },
-          className: 'flex-1', // Flex para o input ocupar espaço igual
+          className: 'alex flex-1', // Flex para o input ocupar espaço igual
         },
         {
           key: 'email',
@@ -79,6 +81,22 @@ export class AppComponent {
           className: 'flex-1', // Flex para o input ocupar espaço igual
         },
       ],
+      fieldGroupClassName: 'flex flex-row space-x-4 items-center', // Classe para layout horizontal
+
+      
+    },
+
+    {
+      key: 'imediato',
+      type: 'checkbox',
+      defaultValue: false,
+      props: {
+        label: 'Imediato',
+        placeholder: '',
+        required: false,
+        className: '_input _input-bordered w-3/12 p-2 ml-4',
+      },
+      className: 'flex-1 space-x-4', // Flex para o input ocupar espaço igual
     },
   ];
 
