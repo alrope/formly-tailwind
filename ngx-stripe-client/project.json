@@ -1,0 +1,101 @@
+{
+  "name": "ngx-stripe-client",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "ngx-stripe-client/src",
+  "prefix": "app",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "options": {
+        "outputPath": "dist/ngx-stripe",
+        "index": "ngx-stripe-client/src/index.html",
+        "browser": "ngx-stripe-client/src/main.ts",
+        "polyfills": [
+          "zone.js"
+        ],
+        "tsConfig": "ngx-stripe-client/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "ngx-stripe-client/public"
+          }
+        ],
+        "styles": [
+          "ngx-stripe-client/src/styles.scss"
+        ],
+        "scripts": [],
+        "server": "ngx-stripe-client/src/main.server.ts",
+        "outputMode": "server",
+        "ssr": {
+          "entry": "ngx-stripe-client/src/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "ngx-stripe-client:build:production"
+        },
+        "development": {
+          "buildTarget": "ngx-stripe-client:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ],
+        "tsConfig": "ngx-stripe-client/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "ngx-stripe-client/public"
+          }
+        ],
+        "styles": [
+          "ngx-stripe-client/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}

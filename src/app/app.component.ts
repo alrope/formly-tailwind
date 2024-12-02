@@ -6,8 +6,8 @@ import { FormlyModule } from '@ngx-formly/core';
 import { FormlyTailwindcssModule } from '@notiz/formly-tailwindcss';
 
 @Component({
-  selector: 'app-root',
-   template: `
+    selector: 'app-root',
+    template: `
    <div class="container mx-auto p-4 max-w-lg">
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col space-y-4">
         <div class="flex flex-row space-x-4">
@@ -18,8 +18,7 @@ import { FormlyTailwindcssModule } from '@notiz/formly-tailwindcss';
         </button>
       </form>
 `,
-standalone: true,
-imports: [ReactiveFormsModule, FormlyModule, FormlyTailwindcssModule],
+    imports: [ReactiveFormsModule, FormlyModule, FormlyTailwindcssModule]
 })
 export class AppComponent {
   title = 'dev';
