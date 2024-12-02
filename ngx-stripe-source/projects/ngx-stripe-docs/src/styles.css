@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: gitbook-code-font, Menlo, monospace;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ngstr-code pre.ngstr-code {
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+}
+
+ngstr-code pre code.hljs {
+  opacity: 0.85;
+  background: #f5f8fc !important;
+  font-size: 0.813rem;
+  border-radius: 0.625em;
+}
+
+.toast-ngx-stripe {
+  background-color: #635bffdf;
+}

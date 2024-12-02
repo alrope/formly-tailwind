@@ -1,0 +1,171 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-stripe": {
+      "root": "projects/ngx-stripe",
+      "sourceRoot": "projects/ngx-stripe/src",
+      "projectType": "library",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-stripe/tsconfig.lib.json",
+            "project": "projects/ngx-stripe/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-stripe/src/test.ts",
+            "tsConfig": "projects/ngx-stripe/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-stripe/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-stripe/tsconfig.lib.json",
+              "projects/ngx-stripe/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-stripe-docs": {
+      "root": "projects/ngx-stripe-docs/",
+      "sourceRoot": "projects/ngx-stripe-docs/src",
+      "projectType": "application",
+      "prefix": "ngst",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "options": {
+            "outputPath": "dist/ngx-stripe-docs",
+            "index": "projects/ngx-stripe-docs/src/index.html",
+            "main": "projects/ngx-stripe-docs/src/main.ts",
+            "polyfills": "projects/ngx-stripe-docs/src/polyfills.ts",
+            "tsConfig": "projects/ngx-stripe-docs/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-stripe-docs/src/assets",
+              "projects/ngx-stripe-docs/src/robots.txt",
+              "projects/ngx-stripe-docs/src/sitemap.xml",
+              "projects/ngx-stripe-docs/src/_redirects"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "projects/ngx-stripe-docs/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-stripe-docs/src/environments/environment.ts",
+                  "with": "projects/ngx-stripe-docs/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "ngx-stripe-docs:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ngx-stripe-docs:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "ngx-stripe-docs:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-stripe-docs/src/test.ts",
+            "polyfills": "projects/ngx-stripe-docs/src/polyfills.ts",
+            "tsConfig": "projects/ngx-stripe-docs/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-stripe-docs/karma.conf.js",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "projects/ngx-stripe-docs/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ngx-stripe-docs/src/favicon.ico",
+              "projects/ngx-stripe-docs/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-stripe-docs/tsconfig.app.json",
+              "projects/ngx-stripe-docs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ngx-stripe-docs/server",
+            "main": "projects/ngx-stripe-docs/server.ts",
+            "tsConfig": "projects/ngx-stripe-docs/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-stripe-docs/src/environments/environment.ts",
+                  "with": "projects/ngx-stripe-docs/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "buildOptimizer": true
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "ab84504c-eb9a-4b17-b204-6ee954517770"
+  }
+}
