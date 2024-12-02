@@ -1,0 +1,7 @@
+curl -X POST \
+              https://trust-pix-h.santander.com.br/oauth/token/auth/oauth/v2/token \
+              -H 'Content-Type: application/x-www-form-urlencoded' \
+              -H 'client_id:{client_id}' \
+              -H 'client_secret:{client_secret}' \
+              -d 'client_id={client_id}&client_secret={client_secret}&grant_type=client_credentials' \
+              --cert /path/to/certificate.pem

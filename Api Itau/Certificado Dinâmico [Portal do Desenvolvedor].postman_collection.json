@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "4994f135-7ae7-46a0-9f94-bc2e5500b3ff",
+		"name": "Certificado Dinâmico [Portal do Desenvolvedor]",
+		"description": "Plataforma de desenvolvimento exclusiva para parceiros Itaú criarem e testarem aplicações de meios de pagamentos de forma simples e segura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ativação Certificado Dinâmico",
+			"item": [
+				{
+					"name": "3 - Envio de arquivo .csr",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5ZjgwNTliMS0xZWJmLTQzNzUtODIxNC1iNDFhYjVmN2Y1MDEiLCJhdXQiOiIiLCJ2ZXIiOiJ2MS4wIiwiaXNzIjoiaHR0cHM6XC9cL29wZW5pZC5pdGF1LmNvbS5iclwvYXBpXC9vYXV0aFwvdG9rZW4iLCJBY2Nlc3NfVG9rZW4iOiJzTG93NG9PN2l5bUs3amI2bk1FTU5XR3JLcjVuWkZaUnMyck5mTkNjaWtwRTFEbGdycWFqMzgiLCJzb3VyY2UiOiJFWFQiLCJlbnYiOiJQIiwic2l0ZSI6ImN0bW0xIiwidXNyIjoibnVsbCIsIm1iaSI6InRydWUiLCJzY29wZSI6InJlc291cmNlLlJFQUQiLCJleHAiOjE1NzY2OTk2ODQsImlhdCI6MTU3NjYxMzI4NCwiZmxvdyI6IkNDIn0.qRRjzfeImc6Us0KrFCsn2aKIqgZH0eJhkAj6C8eKBX8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "-----BEGIN CERTIFICATE REQUEST-----\nMIICrTCCAZUCAQAwaDEtMCsGA1UEAwwkOWY4MDU5YjEtMWViZi00Mzc1LTgyMTQt\nYjQxYWI1ZjdmNTAxMQ0wCwYDVQQLDARET1VHMQ4wDAYDVQQHDAVTQU1QQTELMAkG\nA1UECAwCU1AxCzAJBgNVBAYTAkJSMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB\nCgKCAQEAuwFf/MQM2q7oPTiW4anhsnpPfc+2VnHF9/eQxyn492w35l4s0RpKGu3l\nD1smR8aXQAtRPptTg02/gQbHPRHXJXVYcCAgOTO4RN0zmTG14javzOoUtU4lzMM8\n7FbLmrXjgv37n+GCO8JaQwFW2ZzVDdBxKwOxa21FiJUxgWap2MM4Mw2qQnvo/OiB\nSCb9DfacKwATp4uNeKTpykvuko6BXDsUdK56hDroZhkEiZll2t6gYxi3mnPsXskl\nb5uZHgf5H4XwIH5mO1+W8vSwPa+f7MElb4vQLdEUX+fPF+dQsmO3XxnSr+85+fSw\nY961GLOxilV1MxUycxL00GO2o1WLDQIDAQABoAAwDQYJKoZIhvcNAQENBQADggEB\nAGLR/vHHBmgpuF4kxOSxhu2mOZn4N1rLIBdXTvt4EOQ+9MJB0pTJPBpkbqXUR0ih\nC6yYknut1UnMzbmjAO4A4L4pCGd7fP40zQ74MCO7b8SPFMOefvNzWcFqc4HZRnkD\nxWZmLzy3QYT9KEysuIJxRLcffsJckfp1yltiQji17PbYFNuNdWqEwUmoYC6rX66Z\nkZ1V8GPd5ArqCy3Vv0MoItgERWOlRbBC30K9lGTLWb4/ki87h94Xyf77w1SMM2bW\nEotEtqVWHNZoWhikCuI3Vh6wiYZXzEzN8imIZCHBg5Z61+TyIfvFwxSC+9OwpIKI\nvFteQFnhXAZpwvbzLHPRjw8=\n-----END CERTIFICATE REQUEST-----"
+						},
+						"url": {
+							"raw": "https://sts.itau.com.br/seguranca/v1/certificado/solicitacao",
+							"protocol": "https",
+							"host": [
+								"sts",
+								"itau",
+								"com",
+								"br"
+							],
+							"path": [
+								"seguranca",
+								"v1",
+								"certificado",
+								"solicitacao"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Renovação do Certificado Dinâmico",
+			"item": [
+				{
+					"name": "2 - Obtenção do access_token (autenticação) COM Certificado",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-itau-flowID",
+								"type": "text",
+								"value": "1"
+							},
+							{
+								"key": "x-itau-correlationID",
+								"type": "text",
+								"value": "2"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{SECRET}}",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sts.itau.com.br/api/oauth/token",
+							"protocol": "https",
+							"host": [
+								"sts",
+								"itau",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - API de Renovação do Certificado",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/plain",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5ZjgwNTliMS0xZWJmLTQzNzUtODIxNC1iNDFhYjVmN2Y1MDEiLCJhdXQiOiIiLCJ2ZXIiOiJ2MS4wIiwiaXNzIjoiaHR0cHM6XC9cL29wZW5pZC5pdGF1LmNvbS5iclwvYXBpXC9vYXV0aFwvdG9rZW4iLCJBY2Nlc3NfVG9rZW4iOiJ0NHlSMkxnYlJ2V2s4U2NYSkM3ZTFkT09PWDRlRTJjWlE2Z2YyVEpSZU4zdTVWMDVOT3QyaGkiLCJzb3VyY2UiOiJFWFQiLCJlbnYiOiJQIiwic2l0ZSI6ImN0bW0yIiwidXNyIjoibnVsbCIsIm1iaSI6InRydWUiLCJzY29wZSI6InJlc291cmNlLlJFQUQiLCJleHAiOjE1NzY2MTU4MzQsImlhdCI6MTU3NjYxNTUzNCwiZmxvdyI6IkNDIn0.WHEv_FDWy_DV500qNYU4nAhwDKqGt6mNFFaRQ2JQTOc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "-----BEGIN CERTIFICATE REQUEST-----\nMIICrTCCAZUCAQAwaDEtMCsGA1UEAwwkOWY4MDU5YjEtMWViZi00Mzc1LTgyMTQt\nYjQxYWI1ZjdmNTAxMQ0wCwYDVQQLDARET1VHMQ4wDAYDVQQHDAVTQU1QQTELMAkG\nA1UECAwCU1AxCzAJBgNVBAYTAkJSMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB\nCgKCAQEAuwFf/MQM2q7oPTiW4anhsnpPfc+2VnHF9/eQxyn492w35l4s0RpKGu3l\nD1smR8aXQAtRPptTg02/gQbHPRHXJXVYcCAgOTO4RN0zmTG14javzOoUtU4lzMM8\n7FbLmrXjgv37n+GCO8JaQwFW2ZzVDdBxKwOxa21FiJUxgWap2MM4Mw2qQnvo/OiB\nSCb9DfacKwATp4uNeKTpykvuko6BXDsUdK56hDroZhkEiZll2t6gYxi3mnPsXskl\nb5uZHgf5H4XwIH5mO1+W8vSwPa+f7MElb4vQLdEUX+fPF+dQsmO3XxnSr+85+fSw\nY961GLOxilV1MxUycxL00GO2o1WLDQIDAQABoAAwDQYJKoZIhvcNAQENBQADggEB\nAGLR/vHHBmgpuF4kxOSxhu2mOZn4N1rLIBdXTvt4EOQ+9MJB0pTJPBpkbqXUR0ih\nC6yYknut1UnMzbmjAO4A4L4pCGd7fP40zQ74MCO7b8SPFMOefvNzWcFqc4HZRnkD\nxWZmLzy3QYT9KEysuIJxRLcffsJckfp1yltiQji17PbYFNuNdWqEwUmoYC6rX66Z\nkZ1V8GPd5ArqCy3Vv0MoItgERWOlRbBC30K9lGTLWb4/ki87h94Xyf77w1SMM2bW\nEotEtqVWHNZoWhikCuI3Vh6wiYZXzEzN8imIZCHBg5Z61+TyIfvFwxSC+9OwpIKI\nvFteQFnhXAZpwvbzLHPRjw8=\n-----END CERTIFICATE REQUEST-----\n"
+						},
+						"url": {
+							"raw": "https://sts.itau.com.br/seguranca/v1/certificado/renovacao",
+							"protocol": "https",
+							"host": [
+								"sts",
+								"itau",
+								"com",
+								"br"
+							],
+							"path": [
+								"seguranca",
+								"v1",
+								"certificado",
+								"renovacao"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Consumo de APIs",
+			"item": [
+				{
+					"name": "1 - Obtenção do access_token (autenticação) COM Certificado",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-itau-flowID",
+								"type": "text",
+								"value": "1"
+							},
+							{
+								"key": "x-itau-correlationID",
+								"type": "text",
+								"value": "2"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{SECRET}}",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://sts.itau.com.br/api/oauth/token",
+							"protocol": "https",
+							"host": [
+								"sts",
+								"itau",
+								"com",
+								"br"
+							],
+							"path": [
+								"api",
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - Consumindo APIs",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5ZjgwNTliMS0xZWJmLTQzNzUtODIxNC1iNDFhYjVmN2Y1MDEiLCJhdXQiOiIiLCJ2ZXIiOiJ2MS4wIiwiaXNzIjoiaHR0cHM6XC9cL29wZW5pZC5pdGF1LmNvbS5iclwvYXBpXC9vYXV0aFwvdG9rZW4iLCJBY2Nlc3NfVG9rZW4iOiJodU4xQ3VxTDdCTzZTNHh6NlRZWDVPell2ZnBLN2s5VDhkek1QOEdxZ3hCYjdQc1BTODJCOXUiLCJzb3VyY2UiOiJFWFQiLCJlbnYiOiJQIiwic2l0ZSI6ImN0bW0xIiwidXNyIjoibnVsbCIsIm1iaSI6InRydWUiLCJzY29wZSI6InJlc291cmNlLlJFQUQiLCJleHAiOjE1NzY3NTg1NjYsImlhdCI6MTU3Njc1ODI2NiwiZmxvdyI6IkNDIn0.RhL4wlCXmLN_fLUrCrrTAQm58hl1wBiby31AQQFUQ1I",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-itau-apikey",
+								"value": "{{CLIENT_ID}}",
+								"type": "text"
+							},
+							{
+								"key": "x-itau-correlationID",
+								"value": "a1e64241-7fdb-4d05-a7f6-c44febcdd8d9",
+								"type": "text"
+							},
+							{
+								"key": "x-itau-flowID",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.itau.com.br/sandbox/pagamentos_iti/v1/clientes/1/contratos/1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"itau",
+								"com",
+								"br"
+							],
+							"path": [
+								"sandbox",
+								"pagamentos_iti",
+								"v1",
+								"clientes",
+								"1",
+								"contratos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "646ed0ce-6ba0-4fc2-bc36-f16e8565815d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4ca8bb06-ce02-4ec5-a494-6d535151d941",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
